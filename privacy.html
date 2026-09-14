@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy — T3rnel Business Intelligence</title>
+<meta name="description" content="Privacy policy for T3rnel Business Intelligence: what we collect, what we never collect, and where your data lives.">
+<link rel="canonical" href="https://t3ratech.github.io/t3rnel-business-intelligence/privacy.html">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/screens/icon-512.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <a class="brand" href="index.html"><img src="assets/screens/icon-512.png" alt="" width="28" height="28" style="border-radius:8px"> T3rnel Business Intelligence</a>
+  <nav aria-label="Primary">
+    <a href="index.html">Overview</a>
+    <a href="privacy.html" aria-current="page">Privacy</a>
+  </nav>
+  <a class="store-cta" href="index.html#get">Get the app</a>
+</header>
+<main id="main">
+<section class="hero">
+  <h1>Privacy policy</h1>
+  <p class="lead">Effective 14 September 2026. This policy covers the T3rnel Business Intelligence Android app and web ledger.</p>
+</section>
+
+<section>
+  <h2>The short version</h2>
+  <p>Your books belong to you. We store your business records so you can reach them from your devices; we do not read your SMS inbox, do not sell your data, and do not run analytics on your ledger. You can export everything and leave at any time.</p>
+</section>
+
+<section>
+  <h2>What we collect</h2>
+  <ul>
+    <li><strong>Account identity.</strong> When you sign in with Google we receive your email address, display name and Google subject ID. We store these to attach your sign-in to your workspace.</li>
+    <li><strong>Business records you create.</strong> Ledger entries, invoices, customers, staff, vehicles, captured receipts and SMS text you explicitly capture, and the settings you choose (language, theme, enabled features).</li>
+    <li><strong>Service telemetry.</strong> Cloudflare records request metadata (IP, timestamp, route) for security and reliability. We do not run advertising or behavioural analytics.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>What we never collect</h2>
+  <ul>
+    <li><strong>Your SMS inbox.</strong> The app has no SMS-read permission. A payment message only enters the app when you share it yourself.</li>
+    <li><strong>Contacts, location history or advertising identifiers.</strong></li>
+    <li><strong>Content of other apps.</strong> The share target receives only what you explicitly share.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>How your data is processed</h2>
+  <ul>
+    <li><strong>On-device first.</strong> Captures and entries are written to an encrypted-free local store on your device and sync when connectivity returns. Uninstalling removes unsynced local data.</li>
+    <li><strong>Receipt extraction.</strong> Receipt images you capture are sent to T3rnel Document Intelligence (operated by T3raTech on Cloudflare), which uses Google's Gemini API to extract fields. Images are stored in a private Cloudflare R2 bucket as evidence for your records.</li>
+    <li><strong>Billing.</strong> Usage quotas are enforced by T3rnel WavePay, which receives your tenant ID and quota events — never document contents.</li>
+    <li><strong>Payments.</strong> PayNow callbacks carry transaction references and amounts; card details are handled by PayNow, never by us.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Sharing</h2>
+  <p>We do not sell or rent personal information. Data is shared only with the processors named above (Cloudflare, Google for sign-in and document extraction, PayNow for payments) and only to the extent needed to run the service, or when the law requires it.</p>
+</section>
+
+<section>
+  <h2>Retention and deletion</h2>
+  <p>Records persist while your workspace exists. You can export your data (CSV, accountant formats) at any time from the app. To delete a workspace and all its records, contact us — deletion removes tenant data from D1 and R2 within 30 days, after backups expire.</p>
+</section>
+
+<section>
+  <h2>Security</h2>
+  <p>Credentials are stored only as peppered hashes; sessions travel over TLS. Bearer tokens never appear in the interface — sign-in happens through your Google account. Tenant data is isolated by credential; one workspace cannot read another's records.</p>
+</section>
+
+<section>
+  <h2>Children</h2>
+  <p>The app is a business tool and is not directed at children.</p>
+</section>
+
+<section>
+  <h2>Changes</h2>
+  <p>Material changes will be announced on this page with a new effective date.</p>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <p>T3raTech Solutions (Pvt) Ltd, Harare, Zimbabwe — <a href="https://t3ratech.co.zw">t3ratech.co.zw</a>.</p>
+</section>
+</main>
+</body>
+</html>
