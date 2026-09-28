@@ -1,0 +1,10 @@
+{
+  "name": "T3rnel Business Intelligence",
+  "description": "Offline-first ledger and analytics for Zimbabwean SMEs — EcoCash-aware capture, ZIMRA fiscal-ready invoices, driver profitability. Local-first install; no cloud account, no public API.",
+  "version": "1.0.0",
+  "homepage": "https://bi.t3ratech.co.zw/",
+  "documentation": "https://bi.t3ratech.co.zw/AGENTS.md",
+  "capabilities": ["local-ledger","invoice-capture","offline-first","multilingual"],
+  "authentication": "none — local-first, no remote surface",
+  "contact": "t3ratech.dev@gmail.com"
+}

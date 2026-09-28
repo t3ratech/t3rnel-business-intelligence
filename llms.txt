@@ -1,0 +1,11 @@
+# T3rnel Business Intelligence
+
+> Offline-first bookkeeping for Zimbabwean SMEs — EcoCash-aware capture,
+> ZIMRA fiscal-ready invoices, driver profitability, English/Shona/Ndebele.
+> Local-first install; no cloud account, no public API.
+
+## Docs
+
+- [Overview](https://bi.t3ratech.co.zw/): what it does and who it's for
+- [Privacy](https://bi.t3ratech.co.zw/privacy.html): what stays on the device
+- [AGENTS.md](https://bi.t3ratech.co.zw/AGENTS.md): rules for agent visitors
