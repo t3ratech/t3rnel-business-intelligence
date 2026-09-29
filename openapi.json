@@ -1,0 +1,53 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "T3rnel Business Intelligence API",
+    "version": "1.0.0",
+    "description": "Offline-first bookkeeping ledger for Zimbabwean SMEs. The REST API is tenant-bound: sign in with a Google ID token, then every route reads/writes your own tenant's books. There is no anonymous agent tier.",
+    "contact": { "email": "t3ratech.dev@gmail.com", "url": "https://bi.t3ratech.co.zw" }
+  },
+  "servers": [{ "url": "https://t3rnel-business-intelligence-production.t3ratech.workers.dev" }],
+  "paths": {
+    "/api/health": {
+      "get": { "summary": "Liveness — unauthenticated", "security": [], "operationId": "health", "responses": { "200": { "description": "{ status: 'ok', service }" } } }
+    },
+    "/api/ready": {
+      "get": { "summary": "Readiness — unauthenticated", "security": [], "operationId": "ready", "responses": { "200": { "description": "Readiness probe" } } }
+    },
+    "/api/auth/google": {
+      "post": {
+        "summary": "Sign in with a Google ID token — returns the session the tenant routes take",
+        "security": [],
+        "operationId": "googleSignIn",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "required": ["idToken"], "properties": { "idToken": { "type": "string" } } } } } },
+        "responses": { "200": { "description": "Session for the tenant-bound routes" }, "400": { "description": "idToken is required" } }
+      }
+    },
+    "/api/entries": {
+      "post": { "summary": "Create a ledger entry (tenant-bound)", "operationId": "createEntry", "responses": { "201": { "description": "Entry created" }, "401": { "description": "Session required" } } },
+      "get": { "summary": "List ledger entries (tenant-bound)", "operationId": "listEntries", "parameters": [{ "name": "bookId", "in": "query", "schema": { "type": "string" } }, { "name": "cursor", "in": "query", "schema": { "type": "string" } }, { "name": "limit", "in": "query", "schema": { "type": "integer" } }], "responses": { "200": { "description": "Paged entries" }, "401": { "description": "Session required" } } }
+    },
+    "/api/invoices": {
+      "post": { "summary": "Create a ZIMRA fiscal-ready invoice (tenant-bound)", "operationId": "createInvoice", "responses": { "201": { "description": "Invoice created" }, "401": { "description": "Session required" } } },
+      "get": { "summary": "List invoices (tenant-bound)", "operationId": "listInvoices", "responses": { "200": { "description": "Paged invoices" }, "401": { "description": "Session required" } } }
+    },
+    "/api/fx/rate": {
+      "get": { "summary": "Current FX rate used by the ledger (tenant-bound)", "operationId": "fxRate", "responses": { "200": { "description": "{ rate, pair }" }, "401": { "description": "Session required" } } }
+    },
+    "/api/reports/tax-summary": {
+      "get": { "summary": "Tax summary report (tenant-bound)", "operationId": "taxSummary", "responses": { "200": { "description": "Report body" }, "401": { "description": "Session required" } } }
+    },
+    "/api/reports/vehicle-pnl": {
+      "get": { "summary": "Driver profitability report (tenant-bound)", "operationId": "vehiclePnl", "responses": { "200": { "description": "Report body" }, "401": { "description": "Session required" } } }
+    },
+    "/api/export": {
+      "get": { "summary": "Export the tenant's data (tenant-bound)", "operationId": "export", "responses": { "200": { "description": "Export bundle" }, "401": { "description": "Session required" } } }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "session": { "type": "http", "scheme": "bearer", "description": "Session issued by POST /api/auth/google" }
+    }
+  },
+  "security": [{ "session": [] }]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://agentsfirst.dev/.well-known/mcp-server-card.schema.json",
+  "name": "T3rnel Business Intelligence",
+  "description": "Offline-first ledger and analytics for Zimbabwean SMEs — EcoCash-aware capture, ZIMRA fiscal-ready invoices, driver profitability. Tenant-bound REST API behind Google OAuth; no anonymous agent tier.",
+  "version": "1.0.0",
+  "homepage": "https://bi.t3ratech.co.zw/",
+  "documentation": "https://bi.t3ratech.co.zw/AGENTS.md",
+  "interfaces": {
+    "rest": { "url": "https://t3rnel-business-intelligence-production.t3ratech.workers.dev/api", "auth": "google-oauth session", "openapi": "https://bi.t3ratech.co.zw/openapi.json" }
+  },
+  "capabilities": ["local-ledger","invoice-capture","offline-first","tenant-bound-api"],
+  "verification": { "health": "https://t3rnel-business-intelligence-production.t3ratech.workers.dev/api/health" }
+}

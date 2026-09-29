@@ -1,35 +1,37 @@
 # AGENTS.md — T3rnel Business Intelligence
 
 > What this product is, and how an agent should treat it. This site is
-> marketing + privacy for an offline-first bookkeeping app; the app itself is
-> a local-first install, not a hosted API.
+> marketing + privacy; the working product is an offline-first ledger app with
+> an authenticated API for the operator's own data.
 
 ## What this is
 
 T3rnel Business Intelligence is an offline-first ledger and analytics app for
 Zimbabwean SMEs: EcoCash-aware capture, ZIMRA fiscal-ready invoices, driver
-profitability. It runs on the user's device; the data stays there. English,
-Shona and Ndebele. There is no cloud account and no public API — an agent
-reads this site, there is nothing to call.
+profitability. The web ledger runs at
+`https://t3rnel-business-intelligence-production.t3ratech.workers.dev` behind
+Google OAuth — English, Shona and Ndebele.
 
 ## Interfaces
 
-| Interface | Where |
-|---|---|
-| Web app | linked from this site — local-first, no remote auth |
-| Privacy | `https://bi.t3ratech.co.zw/privacy.html` |
-| Contact | t3ratech.dev@gmail.com |
+| Interface | Where | Auth |
+|---|---|---|
+| Web app | `https://t3rnel-business-intelligence-production.t3ratech.workers.dev/` | Google OAuth |
+| REST API | `https://t3rnel-business-intelligence-production.t3ratech.workers.dev/api/*` | session — the signed-in tenant's own data |
+| OpenAPI | `https://bi.t3ratech.co.zw/openapi.json` | — |
+| Privacy | `https://bi.t3ratech.co.zw/privacy.html` | — |
 
 ## Rules for agents
 
-- Read freely. There is no agent-signup and no machine endpoint — a polite
-  crawl is the whole contract.
-- Do not promise a capability this app doesn't have: no hosted sync, no
-  remote ledger, no per-user cloud. If a task needs those, say so and point
-  the operator at WavePay (`wavepay.t3ratech.co.zw`) or Market Pulse
-  (`market-pulse.t3ratech.co.zw`), which do have agent interfaces.
+- `GET /api/health` and `GET /api/ready` are unauthenticated liveness —
+  everything else wants the operator's session; there is no anonymous agent
+  tier and none is implied.
+- Never mint or guess a session — if a task needs the ledger, the operator
+  signs in first. For public agent surfaces, use Market Pulse
+  (`market-pulse.t3ratech.co.zw`) or WavePay (`wavepay.t3ratech.co.zw`),
+  which are built for unauthenticated agent onboarding.
 
 ## What we will never do
 
-Hold ledger data on a server, sell a sync that doesn't exist, or treat a
-phone's storage as ours to read.
+Serve a tenant's ledger to a stranger, or expose a "public" route that reads
+someone else's books — tenant isolation is the product, not a feature flag.

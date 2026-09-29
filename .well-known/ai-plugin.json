@@ -1,0 +1,12 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "T3rnel Business Intelligence",
+  "name_for_model": "t3rnel_bi",
+  "description_for_human": "Offline-first bookkeeping for Zimbabwean SMEs — ledger, EcoCash capture, fiscal invoices.",
+  "description_for_model": "Tenant-bound bookkeeping API: entries, invoices, FX, reports, export. Requires a session from POST /api/auth/google — there is no anonymous tier.",
+  "auth": { "type": "oauth", "instructions": "Sign in with a Google ID token at POST /api/auth/google; carry the session as Bearer on /api/*." },
+  "api": { "type": "openapi", "url": "https://bi.t3ratech.co.zw/openapi.json", "is_user_authenticated": true },
+  "logo_url": "https://bi.t3ratech.co.zw/assets/favicon.svg",
+  "contact_email": "t3ratech.dev@gmail.com",
+  "legal_info_url": "https://bi.t3ratech.co.zw/privacy.html"
+}
