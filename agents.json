@@ -1,5 +1,4 @@
 {
-  "$schema": "https://agentsfirst.dev/.well-known/mcp-server-card.schema.json",
   "name": "T3rnel Business Intelligence",
   "description": "Offline-first ledger and analytics for Zimbabwean SMEs — EcoCash-aware capture, ZIMRA fiscal-ready invoices, driver profitability. Tenant-bound REST API behind Google OAuth; no anonymous agent tier.",
   "version": "1.0.0",
